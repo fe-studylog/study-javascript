@@ -1,19 +1,19 @@
 
 JavaScript 개요
 
-JavaScript 란?
+* JavaScript 란? *
 : - JavaScript 1990년 초반 발표
   - 단순히 web browser에서 정적인 화면이 아니라
     움직이고, 동작하는 화면을 구현하기 위해서 사용됨 -> programming language로 인정해주지 않음
   - Ajax 기술을 통해 javascript가 launguage로 인정받게 되는 계기가 됨
 
-SPA ( Single Page Application )
+* SPA ( Single Page Application ) *
 : - 맨 처음 server에 접속하면, server에서 application을 실행하기 위한 모든 실행 파일들을 web brower에 전송
     모든 실행 파일 : JavaScript files, html, image, ...
   - 두번째 부터 server에 접속하면 서버에 필요한 data만 web browser로 가져와
     web brower의 download된 JavaScript file들에서 html 문서를 dynamic하게 만들어서 web browser 화면에 display
 
-JavaScript 특징
+* JavaScript 특징 *
 - Script 언어
   : 간단한 코딩을 목적으로 만든 프로그래밍 언어
 - Interpreter 언어
@@ -21,11 +21,11 @@ JavaScript 특징
 - 여러 환경에서 사용 가능
   : web browser 외 여러 부문에서도 사용되고 있음  ( Node.js, Windows Sciprt Host, Android/iOS(WebView) 등)
 
-* 현재 모든 web browser들이 ES6를 지원하고 있으나, Internet Explorer 등 old version의 web browser는 지원 못함
-  -> Transpiler(Trans Compiler) 이용하여 ES6를 ES5로 변환하여 old version web browser에서도 ES6 기능 사용 가능
-  -> 대표적인 transpiler로는 babel.js 라이브러리가 있음
+** 현재 모든 web browser들이 ES6를 지원하고 있으나, Internet Explorer 등 old version의 web browser는 지원 못함
+   -> Transpiler(Trans Compiler) 이용하여 ES6를 ES5로 변환하여 old version web browser에서도 ES6 기능 사용 가능
+   -> 대표적인 transpiler로는 babel.js 라이브러리가 있음
 
-JavaScript 기본표기
+* JavaScript 기본표기 *
 : html <body> tag 안에 어느 위치에서라도 <script> tag 안에 JavaScript programming 사용 가능 ( <script> tag 여러번 사용 가능 )
 : <head> tag 안에 선언할 때는 주로 외부 JavaScript library file을 import 할 때 사용
 : 문장(statement) 규칙
@@ -38,7 +38,7 @@ JavaScript 기본표기
 : 상수 선언
   - const 명령 : 변수명은 대문자로 표기 / 두 단어 이상인 경우 단어 사이에 _(언더바)를 붙임
 
-JavaScript 주요 data type
+* JavaScript 주요 data type *
 : 기본형 - 변수값이 변수명에 직접 저장
   - 숫자형(number) 
   - 문자열형(string) 
@@ -46,11 +46,111 @@ JavaScript 주요 data type
   - 심벌형(symbol)
   - 특수형(null/undefined) : 값이 미정의 된 것을 나타냄
 
-: 참조형
+: 참조형 - 변수값이 실제 데이터가 있는 주소를 갖고 있음
   - 배열(array) : 데이터의 집합(각 요소에는 '인덱스 번호'로 접근 가능)
   - 객체(object) : 데이터의 집합(각 요소에는 '이름'으로 접근 가능)
   - 함수(function): 일련의 처리(절차)의 집
+  - ex) var data = [0, 1, 2];
 
+* 연산자 *
+등가연산자( == ) : value만 같으면 true
+: ex) console.log('1' == 1);   //결과 : true
 
+동치연산자 ( === ) : value와 data type이 일치해야 true
+: ex) console.log('1' == 1);   //결과 : false
 
+조건연산자 (?)
+: ex) var x = 80; 
+      console.log((x >= 70) ? '합격' : '불합격');   //결과 : 합격
 
+* 논리연산자 *
+AND 연산자( && )
+: 좌우식이 모든 ture인 경우, true
+
+OR 연산자( || )
+: 좌우식의 어느 쪽이든 true인 경우, true
+
+! : 식이 false인 경우, true 
+
+** JavaScript에서 빈문자열(""), 숫자 0, NaN(Not a Number), null, undefined는 false로 인정됨 / 이외에는 true로 인정됨
+
+typeof 연산자
+: string, 숫자, Boolean은 식별하나, 배열, 객체는 모두 object로 반환
+
+* 제어구문 *
+: if, switch, while, white/do, for문, break, continue
+  단, switch인 경우 switch 구문 식과 case 구문의 식의 값은 '==='로 비교함.
+
+=> for ... in 명령 
+  for (가변수 in 연상 배열){
+    루프 내에서 실행하는 명령(군)
+  }
+ex1) var data = { apple:150,orange:100,banana:120 };
+      for ( var key in data ){
+           console.log(key + ' = ' + data[key]);
+      }
+     // 결과 apple = 150
+             orange = 100
+             banana = 50
+
+ex2) var data = ['apple','orange','banana'];    ->  배열(array) 사용 가능하나 권장 X 
+     Array.prototype.hoge = function () {}      ->  Array.prototype 새로운 속성 추가시 배열값과 같이 나오는 문제 발생
+      for ( var key in data ){
+           console.log(data[key]);
+       }
+    // 결과 apple
+            orange
+            banana
+            function () {}
+
+      for ( var i = 0, len = data.length; i < len; i++){     ->  따라서 배열인 경우 'for문' 사용 권장
+          console.log(data[i]);
+      }
+    // 결과 apple
+            orange
+            banana
+
+=> for ... of 명령   :   배열, Array, map, set, string, arguments 등 열거 가능한 객체 모두 사용 가능
+  for (가변수 of 열거 가능한 객체){
+    루프 내에서 실행하는 명령(군)
+  }
+
+ex) var data = ['apple','orange','banana']; 
+     Array.prototype.hoge = function () {}
+      for ( var value of data ){
+           console.log(value);
+       }
+    // 결과 apple
+            orange
+            banana
+
+=> 예외 처리하기( try ... catch ... finally )
+   try {
+     예외가 발생할지 모를 명령(군)
+   } catch (예외정보를 취할 변수) {
+     예외가 발생했을 시의 명령(군)
+   } finally {
+     예외의 유무에 관계없이 최종적으로 실행되는 명령(군)
+   }
+ex1)  var i = 1;
+      try{
+         i = i * j;
+      } catch(e) {
+         console.log(e.message);
+      } finally {
+        console.log('처리가 완료되었다.');
+      }
+
+ex2)   var x = 1, y = 0;
+       try {
+          if (y === 0) { throw new Error('0으로 나누려고 하였다.');}
+          var z = x/y;
+       } catch(e){
+          console.log(e.message);
+       }
+       //결과 : 0으로 나누려고 하였다.
+
+=> strict 모드
+   : JavaScript의 안전성과 효율성 면에서 위함한 구문 금지함. ( var 명령의 생략 금지, with 멸령의 이용금지 등)
+   : source code의 잠재적 error를 걸러내기 위한 목적.
+   : 'use strict';를 선언하면 됨
