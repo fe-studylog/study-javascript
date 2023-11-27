@@ -1,0 +1,48 @@
+
+JavaScript 내장형 객체
+
+* 객체 = property + method *
+- Property 
+  : 객체의 상태나 특성을 나타내기 위한 정보 ( 폼의 이름, 폼을 송신할 곳의 URL... )
+- method
+  : 객체를 조작하기 도구(함수) ( 폼 송신하기, 폼 클리어하기... )
+- new 연산자
+  : 객체를 인스턴스화 하는데 사용
+  : 객체명 - function으로 선언, 생성자(constructor)라고 부름
+  : 변수명 - 인스턴스
+  : 인스턴스화 - 객체 자기 자신의 메모리 영역을 확보하는 행휘
+
+// var 변수명 = new 객체명([인수,...])
+                  |--> 함수
+
+// Java, C++ 에서 Class
+   -> Hello h = new Hello(); => Hello룰 클래스라고 부름
+
+// JavaScript 생성자(Constructor) => Java, C++의 Class 역할
+   -> var h = new Hello();  => Hello를 생상자라고 부름
+               |--> Hello : 함수로 만들어져 있음
+   => JavaScript의 Class 역할을 하는 것은 "함수" **
+
+// JavaScript의 내장형 객체
+: Array, Date, String, RegExp, ...  => 생성자(Constructor)이름, "함수"
+                                    => JAVA, C++에선 Class 이름
+
+
+* String 객체 *
+: 문자열 조작
+: String 객체의 주요 멤버
+  - indexOf
+  - lastIndexOf
+  - includes
+  - charAt
+  - slice
+  - substring
+  - split 
+  
+
+* Number 객체 *
+
+
+
+
+
