@@ -4,8 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Introduction</title>
+    <style>
+        .box_wrap { display: flex; flex-wrap: wrap; justify-content: space-between;}
+        .box { width:calc(100%/2 - 15px); padding:20px 30px; border:1px solid #ddd; border-radius:30px; margin-bottom:2%; box-sizing:border-box; }
+        .box h2 { font-size:1.3rem; }
+        .example_box { border-top:1px solid #ddd; margin-top:20px; padding-top:20px; }
+        .example_box p { font-size:0.9rem; }
+    </style>
 </head>
 <body>
-    
+    <h1 id="title"></h1>
+    <div class="box_wrap">
+        <div class="box">
+            <h2>JS can change HTML content</h2>
+            <p id="p1">Hi I'm Spongebob!</p>
+            <button type="button" onclick="document.getElementById('p1').innerHTML = 'I love You~'">click me!</button>
+            <div class="example_box">
+                <button type="button" onclick="showScript1()">show script</button>
+                <p id="script1" style="display:none;">&lt;p id="p1"&gt;Hi I'm Spongebob!&lt;/p&gt; <br />&lt;button type="button" onclick="document.getElementById('p1').innerHTML = 'I love You~'"&gt;click me!&lt;/button&gt;</p>
+            </div>
+        </div>
+        <div class="box">
+            <h2>JS can change HTML attribute values</h2>
+            <p><img id="myImg" src='https://picsum.photos/id/237/150/150'></p>
+            <button type="button" onclick="document.getElementById('myImg').src= 'https://picsum.photos/seed/picsum/250/150'">click me!</button>
+            <div class="example_box">
+                <button type="button" onclick="showScript2()">show script</button>
+                <p id="script2" style="display:none;">
+                    &lt;p&gt;&lt;img id="myImg" src="https://picsum.photos/id/237/150/150'"&gt;&lt;/p&gt; <br />
+                    &lt;button type="button" onclick="document.getElementById('myImg').src = 'https://picsum.photos/seed/picsum/250/150'"&gt;click me!&lt;/button&gt;</p>
+            </div>
+        </div>
+        <div class="box">
+            <h2>JS can change HTML styles (CSS)</h2>
+            <p id="p2">font size 25px</p>
+            <button type="button" onclick="document.getElementById('p2').style.fontSize ='25px'">click me</button>
+            <div class="example_box">
+                <button type="button" onclick="showScript3()">show script</button>
+                <p id="script3" style="display:none;">&lt;p id="p2"&gt;font size 25px&lt;/p&gt; <br />
+                    &lt;button type="button" onclick="document.getElementById('p2').style.fontSize ='25px'"&gt;click me&lt;/button&gt;
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <h2>JS can hide HTML elements</h2>
+            <p id="p3">I'll disappear yap!</p>
+            <button type="button" onclick="document.getElementById('p3').style.display ='none'">click me</button>
+            <div class="example_box">
+                <button type="button" onclick="showScript4()">show script</button>
+                <p id="script4" style="display:none;">&lt;p id="p3"&gt;I'll disappear yap!&lt;/p&gt;<br />
+                    &lt;button type="button" onclick="document.getElementById('p3').style.display ='none'"&gt;click me&lt;/button&gt;
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <h2>JS can show HTML elements</h2>
+            <p id="p4" style="display:none;">I'm here!</p>
+            <button type="button" onclick="document.getElementById('p4').style.display ='block'">clic me</button>
+            <div class="example_box">
+                <button type="button" onclick="showScript5()">show script</button>
+                <p id="script5" style="display:none;">
+                    &lt;p id="p4" style="display:none;&gt;I'm here!&lt;/p&gt; <br />
+                    &lt;button type="button" onclick="document.getElementById('p4').style.display ='block'"&gt;click me&lt;/button&gt;
+                </p>
+            </div>
+        </div>
+        <div class="box">
+            <h2>JS Functions and Events</h2>
+            <p id="p5">JS in &lt;body&gt;</p>
+            <button type="button" onclick="myFunction()">clic me</button>
+            <p id="description">Scripts can be placed in the &lt;body&gt;, or in the &lt;head&gt; section of an HTML page, or in both.<br />Scripts can also be placed in external files.</p>
+            <button type="button" onclick="hideFunction()">hide description</button>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('title').innerHTML = 'JS Introduction';
+        document.getElementById('title').style.textAlign = 'center';
+
+        function myFunction() {
+            document.getElementById('p5').innerHTML ='paragraph changed.';
+        }
+    </script>
+
+    <script src="01_JS intro.js"></script>
 </body>
 </html>
