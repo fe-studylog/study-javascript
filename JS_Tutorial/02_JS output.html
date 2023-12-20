@@ -4,8 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JS Output</title>
+    <style>
+        body > * { word-break: break-all; }
+        .flex_box { display:flex; flex-wrap:wrap; justify-content:space-between; width:90%; margin:50px auto; }
+        .flex_box > div { width: calc(100%/2 - 15px); box-sizing: border-box; margin-bottom:30px; }
+        .tut_box { border:1px solid #ccc; border-radius:15px; padding:30px; }
+        .tut_box > *:not(.script_box) { text-align:center; }
+        .script_box { border-top:1px solid #ddd; padding-top:20px; margin-top:20px; font-size:0.9rem; }
+        .script_box span { color:#999; }
+    </style>
 </head>
 <body>
-    
+    <div class="flex_box">
+        <div class="tut_box">
+            <h2>Using innerHTML</h2>
+            <div>JS display : <span id="demo1"></span></div>
+            <p class="script_box">
+                <span>JS Statements</span>
+                <br><br>
+                &lt;span id="demo1"&gt;&lt;/span&gt;
+                <br>document.getElementById("demo1").innerHTML = 5 + 6;
+            </p>
+        </div>
+
+        <div class="tut_box">
+            <h2>Using document.write()</h2>
+            <button type="button" onclick="document.write(5 + 6)">Try it</button>
+            <p class="script_box">
+                <span>JS statements</span>
+                <br><br>
+                document.write(5 + 6);
+                <br><br>
+                * The document.write() method should only be used for testing.
+            </p>
+        </div>
+
+        <div class="tut_box">
+            <h2>Using window.alert()</h2>
+            <p class="script_box">
+                <span>JS statements</span>
+                <br><br>
+                window.alert(5 + 6);
+                <br>
+                alert(5 + 6);
+                <br><br>                
+                * We can skip the window keyword;
+            </p>
+        </div>
+
+        <div class="tut_box">
+            <h2>Using console.log()</h2>
+            <p class="script_box">
+                <span>JS statements</span>
+                <br><br>
+                console.log(5 + 6);
+                <br><br>
+                * For debugging purposes, we can call the console.log() method in the browser to display data.
+            </p>
+        </div>
+
+        <div class="tut_box">
+            <h2>JavaScript Print</h2>
+            <button type="button" onclick="window.print()">Print this page</button>
+            <p class="script_box">
+                <span>Comments</span>
+                <br><br>
+                * We can call the window.print() method in the browser to print the content of the current window.
+                </p>
+        </div>
+    </div><!-- //flex_box -->
+
+    <script>
+        //demo1
+        document.getElementById("demo1").innerHTML = 5 + 6;
+
+        //Using document.write() after an HTML document is loaded, will delete all existing HTML
+        //document.write(5 + 6); 
+
+        // window.alert(5 + 6);
+        //alert(5 + 6);
+    </script>
 </body>
 </html>
