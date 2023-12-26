@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Variables</title>
+    <style>
+        .wrap { display:flex; flex-wrap:wrap; justify-content:space-between; }
+        .wrap > div { width:calc(100%/2 - 15px); }
+        h2 { font-size:1.2rem; box-shadow:2px 4px 6px rgba(115,115,115,.2); border-left:4px solid navy; padding:10px 20px;  }
+        h3 { font-size:1.1rem; text-align: center; }
+        ol li { line-height:1.6; }
+        .con { margin-bottom:3%; }        
+        .con span { color:orangered; background:#f5f5f5; padding:0 5px; }
+        .con div { padding-left:30px; }
+        
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="con">
+            <h2>Variables are containers for storing values.</h2>
+            <h3>When to use var, let, or const?</h3>
+            <ol>
+                <li>Always use <span>const</span> if the value should not be changed.</li>
+                <li>Always use <span>const</span> if the type should not be changed (Arrays and Objects).</li>
+                <li>Only use <span>let</span> if you can't use const.</li>
+                <li>Only use <span>var</span> if you must support old browsers.</li>
+            </ol>
+        </div>
+        <div class="con">
+            <h2>JavaScript Identifiers are case-sensitive.</h2>
+            <h3>JavaScript Identifiers</h3>
+            <ul>
+                <li>Names can contain letters, digits, underscores, and dollar signs.</li>
+                <li>Names must begin width a letter.</li>
+                <li>Names are case sensitive (y and Y are different variables).</li>
+                <li>Reserved words can't be used as naems.</li>
+            </ul>
+        </div>
+        <div class="con">
+            <h2>In JS, the equal sign(<span>=</span>) is an "assignment" operator, not an "equal to" operator.</h2>
+            <h3>The "equal to" operator is written like <span>==</span> in JS.</h3>
+            <p style="text-align:center; font-weight:600;"> x = x + 5</p>
+            <ul>
+                <li>It assigns the value of x + 5 to x.</li>
+                <li>It calculates the value of x + 5 and puts the result into x.</li>
+            </ul>
+        </div>
+        <div class="con">
+            <h2>If you put a number in quotes, the rest of the numbers will be treated at strings, and concatenated.</h2>
+            <h3>JS Arithmetic</h3>
+            <ul>
+                <li>let x = "5" + 2 + 3 => x = 523</li>
+                <li>let y = 2 + 3 + "5" => x = 55</li>
+            </ul>
+        </div>
+        <div class="con">
+            <h2>Variables defined with let can not be redeclared.</h2>
+            <h3>JavaScript Let</h3>
+            <ul>
+                <li>let x = "John Doe";
+                    <br>
+                    let x = 0;  
+                    <br> =>   Not allowed </li>
+                <li>let x = 10; // &emsp;x = 10
+                    <br>
+                    { <br>
+                    &emsp;let x = 2;   // &emsp;x = 2<br>
+                    } <br>   =>  Allowed</li>
+            </ul>
+        </div>
+        <div class="con">
+            <h2>JavaScript const variables must be assigned a value when they are declared</h2>
+            <h3>Must be Assigned</h3>
+            <ul>
+                <li>const PI = 3.14159265359;
+                    <br> =>   Correct </li>
+                <li>const PI;
+                    <br>
+                    PI = 3.14159265359;
+                    <br>   =>  Incorrect</li>
+            </ul>
+        </div>
+        <div class="con">
+            <h2>You can change the elements of a constant array. But you can NOT reassign the arrays.</h2>
+            <h3>Must be Assigned</h3>
+            <ul>
+                <li>const car = {type:"Fiat", model:"500", color:"white"};
+                    <br>car.color = "red";
+                    <br> =>   Correct </li>
+                <li>const car = {type:"Fiat", model:"500", color:"white"};
+                    <br>
+                    car = {type:"Volvo", model:"EX60", color:"red"};
+                    <br>   =>  Error</li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
